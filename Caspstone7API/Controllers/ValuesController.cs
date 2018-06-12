@@ -36,12 +36,33 @@ namespace Caspstone7API.Controllers
         public void Delete(int id)
         {
         }
-        public List<Product> GetProductID()
+        //Both method and your return have to return the same return type List<string>
+        public List<string> GetProductID()
         {
             NorthwindEntities db = new NorthwindEntities();
+            //pull your own name in the for loop
+            //pID is a database full of tables
             List<Product> pID =  db.Products.ToList();
-                                
-            return pID;
+            //Creating a list of strings (generic) 
+            //throwing in data from your list of products db.
+            List<string> names = new List<string>();
+
+            //pID.Count it's not just numbers so we use 
+            //.Count(counting index)to go through the list of data
+            for (int i = 0; i < pID.Count; i++)
+            {
+                //"names" is the list of names I want to put data into
+                //[i] is the index. This will grab everything
+                //. allows you to join 'objects'
+                names.Add(pID[i].ProductID.ToString());
+                //ToString not needed because 'ProductName"
+                //is already a string.
+                names.Add(pID[i].ProductName);
+
+                
+            }
+            
+            return names;
         }
 
         public List<Product> GetProductID(int id)
@@ -49,8 +70,12 @@ namespace Caspstone7API.Controllers
             NorthwindEntities db = new NorthwindEntities();
             List<Product> pID = db.Products.ToList();
                                 (from p in db.Products
-                             where p.ProductID == (id)
-                             select p).Single();
+                                 where p.ProductID == (id)
+                                   select p).Single();
+            if
+            {
+                pID 
+            }
 
             return pID;
         }
