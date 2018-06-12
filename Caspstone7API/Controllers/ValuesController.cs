@@ -36,7 +36,8 @@ namespace Caspstone7API.Controllers
         public void Delete(int id)
         {
         }
-        //Both method and your return have to return the same return type List<string>
+        //Both method and your return have to 
+        //return the same return type List<string>
         public List<string> GetProductID()
         {
             NorthwindEntities db = new NorthwindEntities();
@@ -65,19 +66,18 @@ namespace Caspstone7API.Controllers
             return names;
         }
 
-        public List<Product> GetProductID(int id)
+        public Product GetProductID(int id)
         {
             NorthwindEntities db = new NorthwindEntities();
-            List<Product> pID = db.Products.ToList();
-                                (from p in db.Products
-                                 where p.ProductID == (id)
-                                   select p).Single();
-            if
-            {
-                pID 
-            }
+            Product prod = (from p in db.Products
+                            where p.ProductID == id
+                            select p).Single();
+            //if (db.Database == null)
+            //{
+            //        return;
+            //}
 
-            return pID;
+            return prod;
         }
 
     }
