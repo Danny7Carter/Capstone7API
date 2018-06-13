@@ -79,6 +79,26 @@ namespace Caspstone7API.Controllers
 
             return prod;
         }
+        public List<Product> GetCategoryID(int CatID)
+        {
+            NorthwindEntities db = new NorthwindEntities();
+            Product CatID = (from p in db.Products
+                            where p.CategoryID 
+                            select p).ToList();
+            
+
+            return CatID;
+        }
+        public List<Product> GetSupplierID(int SupID)
+        {
+            NorthwindEntities db = new NorthwindEntities();
+            Product SupID = (from p in db.Products
+                             where p.SupplierID
+                             select p).ToList();
+
+
+            return SupID;
+        }
 
     }
 }
